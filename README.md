@@ -27,7 +27,9 @@ Database session service is used as the memory of the agent and it is linked to 
 The key solution in this design is the position of the agent. This design can be applied to any other API, and the agent that is in use or its different functionalities can easily be changed. The main application still relies on its API endpoints.
 
 
-## Demo -- Show your solutions
+## Demo
+[![Demo](http://img.youtube.com/vi/2P6P8uf3asw/0.jpg)](https://youtu.be/2P6P8uf3asw)
+I'm mainly aiming to explain the design and the basic agent.
 
 ## The Build
 Google Agent Development Kit (ADK), Flask, Google Sheets API, Supabase PostgreSQL DBs
