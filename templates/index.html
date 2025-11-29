@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ app_title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="onboarding-header">
+            <h1>{{ header }}</h1>
+            <p class="description">{{ description }}</p>
+        </div>
+
+        <div class="mode-toggle-container">
+            <div class="toggle-switch">
+                <span class="switch-state">Form</span>
+                <input type="checkbox" id="modeToggle" class="switch-checkbox" checked>
+                <label class="switch-label" for="modeToggle"></label>
+                <span class="switch-state">Agentic</span>
+            </div>
+        </div>
+
+        <!-- Chatbot View (Default) -->
+        <div id="chatbotView" class="onboarding-view active">
+            <div class="chatbot-container">
+                <div class="chatbot-header">
+                    <!-- <h2>Agentic Onboarding</h2> -->
+                    <!-- <p>Chat with our onboarding assistant to complete your registration.</p> -->
+                </div>
+                <div class="chatbot-messages" id="chatbotMessages">
+                    <div class="message bot-message">
+                        <p>Hi there, welcome to the onboarding process!</p>
+                    </div>
+                </div>
+                <div class="chatbot-input-container">
+                    <input 
+                        type="text" 
+                        id="chatbotInput" 
+                        placeholder="Type your message here..." 
+                        disabled
+                    >
+                    <button id="chatbotSend" disabled>Send</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Legacy Form View -->
+        <div id="legacyView" class="onboarding-view">
+            <div class="form-container">
+                <!-- <h2>Legacy Onboarding</h2> -->
+                <!-- <p class="form-description">Please fill out the form below to complete your registration.</p> -->
+                
+                {% if error_message %}
+                <div class="error-message">
+                    <p>{{ error_message }}</p>
+                </div>
+                {% endif %}
+                
+                {% if questions %}
+                <form id="onboardingForm">
+                    {% for question in questions %}
+                    <div class="form-group">
+                        <label for="{{ question.questioned_entity }}">
+                            {{ question.questioned_entity }}
+                            {% if question.is_mandatory == 'Y' %}<span class="required">*</span>{% endif %}
+                        </label>
+                        {% set field_type = 'email' if 'email' in question.questioned_entity.lower() else 'text' %}
+                            <input 
+                                type="{{ field_type }}" 
+                                id="{{ question.questioned_entity }}" 
+                                name="{{ question.questioned_entity }}"
+                                {% if question.is_mandatory == 'Y' %}required{% endif %}
+                            >
+                    </div>
+                    {% endfor %}
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="submit-btn">Complete Registration</button>
+                    </div>
+                </form>
+                {% else %}
+                <div class="no-questions-message">
+                    <p>No questions available. Please try refreshing or contact support.</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
+
