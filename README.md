@@ -30,10 +30,7 @@ The key solution in this design is the position of the agent. This design can be
 ## Demo -- Show your solutions
 
 ## The Build
-- Google Agent Development Kit (ADK)
-- Flask
-- Google Sheets API
-- Supabase PostgreSQL DBs
+Google Agent Development Kit (ADK), Flask, Google Sheets API, Supabase PostgreSQL DBs
 
 - For the agent, check out `agent.py` inside `custom_funcs/agents/`.
 - If you want to reproduce the app, you can use the repo; however, you need to provide your own secrets in a `.env` file. Additionally, you either need to set up another admin panel sheet and create a `google_sheet_credentials.json` in the root, or simplpy give the app a set of static questions, and customize it however you want. 
@@ -43,5 +40,6 @@ The key solution in this design is the position of the agent. This design can be
 ## If I had more time, this is what I'd do
 - I would turn this into a multi agent system, create scenarios for different types of users and how agents should interact with each of them.
 - I would assign a single agent for all data handling operations, and would add more dynamism to questions to be asked.
-- I would make the user aware that the process can be finished early, and I would prompt engineer it in a way that the conversation is more engaging.
+- I would make the user aware that the process can be finished early.
 - I would make it so that the agent builds a context, maybe a knowledge graph of a user based on given taxonomy and how a user relates to the entities in there, and make an agent save this result as well.
+- I would try to find ways to reward user to want continuing the conversation: engagement + more information
