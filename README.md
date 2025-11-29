@@ -30,7 +30,7 @@ The key solution in this design is the position of the agent. This design can be
 ## Demo
 [![Demo](http://img.youtube.com/vi/2P6P8uf3asw/0.jpg)](https://youtu.be/2P6P8uf3asw)
 
-I'm mainly aimed to explain the design and the basic agent. I invite you to please ignore the session not found error that is due to this demo environment, and not in the way at all to showcase/demo what the idea is about and how it works.
+I mainly aimed to explain the design and the basic agent. I invite you to please ignore the session not found error that is due to this demo environment, and not in the way at all to showcase/demo what the idea is about and how it works.
 
 ## The Build
 Google Agent Development Kit (ADK), Flask, Google Sheets API, Supabase PostgreSQL DBs
